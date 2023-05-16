@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend application using Electron with integration of OpenAI api and Supabase.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TsubomiKido/frontend.git"
+  },
+  "author": "Niel Sean Mikhael M. Gildo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TsubomiKido/frontend/issues"
+  },
+  "homepage": "https://github.com/TsubomiKido/frontend#readme",
+  "devDependencies": {
+    "electron": "^24.3.0"
+  }
+}
