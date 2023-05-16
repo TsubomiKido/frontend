@@ -10,12 +10,25 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>Hello from Electron renderer!</title>
+    <title>Calculate Time Complexity App</title>
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <p id="info"></p>
+
+    <h1>Calculate Runtime</h1>
+
+  <div>
+
+    <form id="line_code">
+        <label for="code_line">Code Line:</label><br>
+        <textarea name="code_line" rows="5"></textarea><br>
+        <input type="submit" value="Submit"><br>
+    </form>
+    <br>
+    <div>
+        <label for="run_result">Run Result:</label><br>
+        <textarea id="run_result" rows="5" readonly></textarea>
+    </div>
+  </div>
   </body>
   <script src="./js/renderer.js"></script>
 </html>
