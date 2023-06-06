@@ -2,6 +2,7 @@
 const { app, BrowserWindow, ipcMain} = require("electron");
 const path = require("path");
 const axios = require("axios");
+const dotenv = require('dotenv').config();
 
 //Main Window
 const isDev = true;
@@ -44,14 +45,16 @@ app.on("window-all-closed", () => {
 
 //Main Functions
 async function openAI(event, code_line){
-  let res = null;
+  let result = null;
+
+  const env = dotenv.parsed;
 
   await axios({
     method: 'post',
     url: 'https://api.openai.com/v1/completions',
     data: {
       model: "text-davinci-003",
-      prompt: "" + code_line,
+      prompt: "" + code_line + "\"\"\"\"\nThe time complexity of this function is",
       temperature: 0,
       max_tokens: 64,
       top_p: 1.0,
@@ -61,13 +64,13 @@ async function openAI(event, code_line){
     },
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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'
+      'Authorization': 'Bearer ' + env.APIKEY_OPENAI
   }
   }).then(function (response) {
-    res = response.data;
+    result = response.data;
   })
   .catch(function (error) {
-    res = error;
+    result = error;
   });
-  return res;
+  return result;
 }
